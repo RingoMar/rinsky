@@ -4,7 +4,7 @@ mapboxgl.accessToken =
 var map = new mapboxgl.Map({
   container: "map",
   style: "mapbox://styles/mapbox/navigation-night-v1",
-  center: [-61.55602835109843, 10.71159642049841],
+  center: [-61.250486697793875, 10.435102212255927],
   zoom: 6,
 });
 var radius = 5;
@@ -69,8 +69,8 @@ function createPopupContent(plane) {
 
 function updatePlanes() {
   console.log("Updating Planes");
-  var latitude = 10.71159642049841;
-  var longitude = -61.55602835109843;
+  var latitude = 10.435102212255927;
+  var longitude = -61.250486697793875;
 
   getFlightData(latitude, longitude)
     .then(function (flightData) {
@@ -130,7 +130,7 @@ function updatePlanes() {
 setInterval(updatePlanes, 3 * 60 * 1000);
 
 map.on("load", function () {
-  var center = [-61.55602835109843, 10.71159642049841];
+  var center = [-61.250486697793875, 10.435102212255927];
   var radiusInKm = radius * 100;
   var options = {
     steps: 64,
