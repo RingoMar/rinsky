@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RinSky - Flight Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div id="loader">
+      <img src="Departing.gif" alt="Loading..." />
+      <h2>Loading...</h2>
+      <div id="progress-bar"></div>
+    </div>
+
+    <div id="container">
+      <div id="left">
+        <img class="icon" src="./Flying around the world.svg" alt="Icon" />
+        <div class="infoSection">
+            <h1 class="HeaderText">RinSky</h1>
+            <div class="lowerhalf">
+                <span class="sp-text">Tropical Air Flow</span>
+                <h1 class="planeCount">-</h1>
+            </div>
+        </div>
+      </div>
+      <div id="right">
+        <div id="map"></div>
+      </div>
+    </div>
+    <script>
+      var loader = document.getElementById("loader");
+
+      var progressBar = document.getElementById("progress-bar");
+      progressBar.style.width = "0%";
+
+      var progress = 0;
+      var interval = setInterval(function () {
+        progress += 10;
+        progressBar.style.width = progress + "%";
+        if (progress >= 100) {
+          clearInterval(interval);
+          setTimeout(function () {
+            loader.style.display = "none";
+          }, 4800);
+        }
+      }, 300);
+
+      loader.style.display = "flex";
+    </script>
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/1.8.2/countUp.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
